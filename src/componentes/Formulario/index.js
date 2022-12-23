@@ -6,16 +6,6 @@ import { useState } from 'react'
 
 const Formulario = (props) => {
 
-    const treinadores = [
-        'Lebron James',
-        'The Rock',
-        'Messi',
-        'Donald Trump',
-        'Akon',
-        'John Cena',
-        'Naruto'
-    ]
-
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
     const [imagem, setImagem] = useState('')
@@ -60,7 +50,7 @@ const Formulario = (props) => {
                 <ListaSuspensa
                     obrigatorio={true}
                     label="Treinador"
-                    itens={treinadores}
+                    itens={props.treinadores}
                     valor={treinador}
                     aoAlterado={valor => setTreinador(valor)} />
                 <Botao>
