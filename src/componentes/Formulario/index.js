@@ -4,7 +4,7 @@ import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
 import { useState } from 'react'
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const treinadores = [
         'Lebron James',
@@ -19,15 +19,21 @@ const Formulario = () => {
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
     const [imagem, setImagem] = useState('')
+    const [treinador, setTreinador] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        console.log('Form foi submetido => ', nome, tipo, imagem)
+        props.aoColaboradorCadastrado ({
+            nome,
+            tipo,
+            imagem,
+            treinador
+        })
     }
 
     return (
         <section className="formulario">
-            <form onSubmit={() => aoSalvar()}>
+            <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o PokéCard</h2>
                 <CampoTexto
                     obrigatorio={true}
@@ -54,9 +60,9 @@ const Formulario = () => {
                 <ListaSuspensa
                     obrigatorio={true}
                     label="Treinador"
-                    itens={treinadores} 
+                    itens={treinadores}
                     valor={treinador}
-                    aoAlterado={valor => setTreinador(valor)/>
+                    aoAlterado={valor => setTreinador(valor)} />
                 <Botao>
                     Criar Card
                 </Botao>
