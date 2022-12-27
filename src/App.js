@@ -55,7 +55,13 @@ function App() {
       <Banner />
       <Formulario treinadores={treinadores.map(Treinador => Treinador.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
 
-      {treinadores.map(treinadores => <Treinador key={treinadores.nome} nome={treinadores.nome} corPrimaria={treinadores.corPrimaria} corSecundaria={treinadores.corSecundaria}/>)}
+      {treinadores.map(treinadores => <Treinador 
+      key={treinadores.nome} 
+      nome={treinadores.nome} 
+      corPrimaria={treinadores.corPrimaria} 
+      corSecundaria={treinadores.corSecundaria}
+      colaboradores={colaboradores.filter(colaborador => colaborador.treinador === treinadores.nome) }
+      />)}
 
     </div>
   );
