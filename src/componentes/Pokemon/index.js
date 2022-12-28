@@ -1,9 +1,9 @@
 import './Pokemon.css'
 
-const Pokemon = ({nome, imagem, tipo}) => {
+const Pokemon = ({nome, imagem, tipo, corDeFundo}) => {
     return ( 
         <div className="Pokemon">
-            <div className="cabecalho">
+            <div className="cabecalho" style={{backgroundColor: corDeFundo}}>
             <img src={imagem} alt={nome} />
             </div>
             <div className="rodape">

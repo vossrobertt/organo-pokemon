@@ -9,7 +9,7 @@ const Treinador = (props) => {
         (props.colaboradores.length > 0) ? <section className='Treinador' style={corFundo}>
             <h3 style={corTraco} >{props.nome}</h3>
             <div className='colaboradores'>
-                {props.colaboradores.map(colaborador => <Pokemon nome={colaborador.nome} tipo={colaborador.tipo} imagem={colaborador.imagem}/> )}
+                {props.colaboradores.map(colaborador => <Pokemon corDeFundo={props.corPrimaria} key={colaborador.nome} nome={colaborador.nome} tipo={colaborador.tipo} imagem={colaborador.imagem}/> )}
             </div>
         </section>
         : ''
